@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اختار المادة</title>
+
+  <style>
+    body{
+      margin:0;padding:0;font-family:Tahoma;direction:rtl;
+      background:#f3f5f7;color:#000;
+      transition:0.3s;
+    }
+    header{
+      background:#0b74de;color:#fff;
+      padding:20px;text-align:center;
+      font-size:20px;font-weight:bold;
+      position:relative;
+    }
+    .dark-btn{
+      position:absolute;
+      left:15px;top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,0.25);
+      border:none;
+      border-radius:8px;
+      padding:6px 10px;
+      font-size:16px;
+      cursor:pointer;
+      color:#fff;
+    }
+    .container{max-width:900px;margin:30px auto;padding:0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+    .btn{
+      display:block;text-align:center;padding:20px;
+      background:#fff;border-radius:12px;
+      font-weight:bold;font-size:18px;
+      text-decoration:none;color:#0b74de;
+      box-shadow:0 6px 18px rgba(0,0,0,0.07);
+      transition:0.15s;
+    }
+    .btn:hover{transform:translateY(-5px);}
+
+    /* الوضع الليلي */
+    body.dark{
+      background:#0f172a;
+      color:#e5e7eb;
+    }
+    body.dark .btn{
+      background:#1e293b;
+      color:#60a5fa;
+    }
+    body.dark header{
+      background:#020617;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    2025
+    <button class="dark-btn" onclick="toggleDark()">🌙</button>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <a class="btn" href="Math 0.html">Math 0</a>
+      <a class="btn" href="Math 1.html">Math 1</a>
+      <a class="btn" href="Physics.html">Physics</a>
+      <a class="btn" href="cs.html">CS</a>
+      <a class="btn" href="ethics.html">Ethics</a>
+      <a class="btn" href="E-commerce.html">E-COMMERCE</a>
+      <a class="btn" href="Englich.html">English</a>
+    </div>
+  </div>
+
+  <script>
+  // لما الصفحة تتحمل، شوف لو الداكن متفعل قبل كده
+  if(localStorage.getItem('dark-mode') === 'enabled'){
+    document.body.classList.add('dark');
+  }
+
+  function toggleDark(){
+    document.body.classList.toggle("dark");
+
+    // حفظ الاختيار في localStorage
+    if(document.body.classList.contains('dark')){
+      localStorage.setItem('dark-mode','enabled');
+    } else {
+      localStorage.setItem('dark-mode','disabled');
+    }
+  }
+</script>
+
+</body>
+</html>
